@@ -1,3 +1,4 @@
+# source
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +9,7 @@ export ZSH="/Users/ptrha/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 ZSH_THEME=powerlevel10k/powerlevel10k
 
 # Set list of themes to pick from when loading at random
@@ -75,6 +76,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+set -o vi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -101,11 +104,36 @@ source $ZSH/oh-my-zsh.sh
 alias vi="vim"
 alias sshdev="ssh dev-dsk-ptrha-2c-01985dba.us-west-2.amazon.com"
 alias sshvan="ssh dev-dsk-ptrha-2c-2cd7669a.us-west-2.amazon.com"
+alias sshg="ssh -Xy dev-dsk-ptrha-2c-2cd7669a.us-west-2.amazon.com"
 alias vimrc="vi ~/.vimrc"
 alias zshrc="vi ~/.zshrc"
 alias shell="exec $SHELL"
+
+alias nds="ninja-dev-sync"
+
+alias bba='brazil-build apollo-pkg'
+alias bre='brazil-runtime-exec'
+alias brc='brazil-recursive-cmd'
+alias bws='brazil ws'
+alias bwsuse='bws use --gitMode -p'
+alias bwscreate='bws create -n'
+alias brc=brazil-recursive-cmd
+alias bbr='brc brazil-build'
+alias bball='brc --allPackages'
+alias bbb='brc --allPackages brazil-build'
+alias bbra='bbr apollo-pkg'
+
+alias brazil-octane='/apollo/env/OctaneBrazilTools/bin/brazil-octane'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias chromedev='"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --args --ignore-certificate-errors'
+
+for f in "$HOME"/.zshrc.d/**/*.zsh(.N); do
+    [ -f "$f" ] && source "$f"
+done
+
+export PATH=$HOME/.toolbox/bin:$PATH

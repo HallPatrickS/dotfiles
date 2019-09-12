@@ -13,7 +13,9 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'udalov/kotlin-vim'
+"Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 set nocompatible
@@ -77,7 +79,10 @@ set number relativenumber
 syntax enable
 set encoding=utf-8
 
+set bg=dark
+
 "colorscheme dracula
+colorscheme gruvbox
 
 
 " Use Unix as the standard file type
@@ -129,6 +134,11 @@ nnoremap <Leader>srn :set relativenumber!<CR>
 nnoremap <Leader>ev :e ~/.vimrc<CR>
 nnoremap <Leader>eb :e ~/.bashrc<CR>
 nnoremap <Leader>nn :NERDTreeToggle<CR>
+
+
+" How can I close vim if the only window left open is a NERDTree?
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 
 let g:airline#extensions#ale#enabled = 1
 let g:airline_theme='vice'
