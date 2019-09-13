@@ -1,40 +1,34 @@
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/vim-easy-align'
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'fatih/vim-go', { 'tag': '*' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'udalov/kotlin-vim'
-"Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'morhetz/gruvbox'
-
-call plug#end()
 set nocompatible
 filetype off
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on
+syntax enable
 "syntax on
 
 set autoread
 
+call plug#begin('~/.vim/plugged')
+if filereadable(expand("~/.vimrc.plugs"))
+    source ~/.vimrc.plugs
+endif
+
+call plug#end()
 set history=500
+""""""""""""""""""""""
+" => General
+""""""""""""""""""""""
 
 let mapleader = ','
-nmap <leader>w :w!<cr>
+map <leader>w :w!<cr>
+nmap <leader>s :source %<cr>
+nmap <leader>pi :PlugInstall<cr>
+nmap <leader>ev :e ~/.vimrc<cr>
+nmap <leader>pe :e ~/.vimrc.plugs<cr>
+nmap <leader>ep :e#<cr>
 
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000
+set undoreload=10000
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -136,8 +130,12 @@ nnoremap <Leader>eb :e ~/.bashrc<CR>
 nnoremap <Leader>nn :NERDTreeToggle<CR>
 
 
+"""""""""""""
+" => NerdTree
+"""""""""""""
 " How can I close vim if the only window left open is a NERDTree?
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowHidden=1
 
 
 let g:airline#extensions#ale#enabled = 1

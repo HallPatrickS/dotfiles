@@ -106,6 +106,7 @@ alias sshdev="ssh dev-dsk-ptrha-2c-01985dba.us-west-2.amazon.com"
 alias sshvan="ssh dev-dsk-ptrha-2c-2cd7669a.us-west-2.amazon.com"
 alias sshg="ssh -Xy dev-dsk-ptrha-2c-2cd7669a.us-west-2.amazon.com"
 alias vimrc="vi ~/.vimrc"
+alias vimplugs="vi ~/.vimrc.plugs"
 alias zshrc="vi ~/.zshrc"
 alias shell="exec $SHELL"
 
@@ -124,6 +125,8 @@ alias bbb='brc --allPackages brazil-build'
 alias bbra='bbr apollo-pkg'
 
 alias brazil-octane='/apollo/env/OctaneBrazilTools/bin/brazil-octane'
+
+alias dotfiles="cd ~/dotfiles"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
