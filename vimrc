@@ -19,11 +19,14 @@ set history=500
 
 let mapleader = ','
 map <leader>w :w!<cr>
+nmap <leader>q :q<cr>
 nmap <leader>s :source %<cr>
 nmap <leader>pi :PlugInstall<cr>
 nmap <leader>ev :e ~/.vimrc<cr>
 nmap <leader>pe :e ~/.vimrc.plugs<cr>
 nmap <leader>ep :e#<cr>
+nmap <leader>tp :tabp<cr>
+nmap <leader>tn :tabn<cr>
 
 set undodir=~/.vim/undodir
 set undofile
